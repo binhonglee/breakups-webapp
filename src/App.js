@@ -1,20 +1,46 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import People from './Components/People';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      peoples: []
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        Breakups
+        <br/>
+        <br/>
+        <form onSubmit={this.populatePeople.bind(this)}>
+          Number of people: <input type="text" ref="noOfPeople"/> <input type="submit" value="Submit" />
+        </form>
+        <br/>
+        <br/>
+        {this.state.peoples}
+        <input type="submit" value="Get Payment Chain"/>
+        <input type="submit" value="Send email reminder"/>
       </div>
     );
+  }
+
+  populatePeople(e) {
+    let peoples = []
+
+    if (isNaN(this.refs.noOfPeople.value)) {
+      alert('Please input number!');
+    } else {
+      for (var i = 0; i < this.refs.noOfPeople.value; i++) {
+        peoples.push (<People key={i} people={(i+1)} />);
+        this.setState({peoples:peoples});
+      }  
+    }
+    
+    e.preventDefault();
   }
 }
 
