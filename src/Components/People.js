@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 
 class People extends Component {
+    constructor() {
+        super();
+        this.state = {
+            space: `\t`
+        }
+    }
+
     render() {
         return (
             <div className="People">
-                <form className="form">
-                    Person {this.props.people}<br/>
-                    Name: <input type = "text" ref="name" onBlur={this.updateProps.bind(this)}/><br/>
-                    Email: <input type = "text" ref="email" onBlur={this.updateProps.bind(this)}/><br/>
-                    Amount: <input type = "text" ref="amount" onBlur={this.updateProps.bind(this)}/><br/>
+                Person {this.props.people}<br/>
+                <form style={{textAlign:'left'}}>
+                    Name:{this.state.space}<input type = "text" ref="name" onBlur={this.updateProps.bind(this)} style={{float:'right'}}/><br/>
+                    Email:{this.state.space}<input type = "text" ref="email" onBlur={this.updateProps.bind(this)} style={{float:'right'}}/><br/>
+                    Amount:{this.state.space}<input type = "text" ref="amount" onBlur={this.updateProps.bind(this)} style={{float:'right'}}/><br/>
                 </form>
                 <br/>
             </div>

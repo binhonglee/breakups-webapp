@@ -9,23 +9,29 @@ class App extends Component {
     this.state = {
       peoples: [],
       info: [],
-      paymentChain: []
+      paymentChain: [],
+      actionButtons:[]
     }
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Breakups</h1>
+        <header className="App-header">
+          <h1>Breakups</h1>
+        </header>
         <h3>Easy way to split bills among multiple people.</h3>
-        <form onSubmit={this.populatePeople.bind(this)}>
-          Number of people: <input type="text" ref="noOfPeople"/> <input type="submit" value="Submit" />
-        </form>
-        <br/>
-        {this.state.peoples}
-        <br/>
-        <PaymentChain paymentChain={this.state.paymentChain} />
-        <br/>
+        <div className="Forms">
+          <form className="Main-form" onSubmit={this.populatePeople.bind(this)}>
+            Number of people: <input type="text" ref="noOfPeople"/> <input type="submit" value="Submit" />
+          </form>
+          <br/>
+          <div className="Peoples">
+            {this.state.peoples}
+          </div>
+        </div>
+        {this.state.actionButtons}
+        <PaymentChain className="PaymentChain" paymentChain={this.state.paymentChain} />
       </div>
     );
   }
@@ -65,9 +71,10 @@ class App extends Component {
         peoples.push(<People key={i} id={i} people={(i+1)} info={this.updateInfo.bind(this)} />);
       }
 
-      peoples.push(<input key="paymentChain" type="submit" value="Get Payment Chain" onClick={this.getPaymentChain.bind(this)}/>);
-      peoples.push(<input key="email" type="submit" value="Send email reminder (non-functional yet)"/>);
-      this.setState({peoples:peoples, info:info});
+      let actionButtons = []
+      actionButtons.push(<input key="paymentChain" type="submit" value="Get Payment Chain" onClick={this.getPaymentChain.bind(this)}/>);
+      actionButtons.push(<input key="email" type="submit" value="Send email reminder (non-functional yet)"/>);
+      this.setState({peoples:peoples, info:info, actionButtons:actionButtons});
     }
     
     e.preventDefault();
