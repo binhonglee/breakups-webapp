@@ -17,9 +17,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Breakups</h1>
-        </header>
         <h3>Easy way to split bills among multiple people.</h3>
         <div className="Forms">
           <form className="Main-form" onSubmit={this.populatePeople.bind(this)}>
