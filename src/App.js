@@ -17,16 +17,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h3>Easy way to split bills among multiple people.</h3>
         <div className="Forms">
-          <form className="Main-form" onSubmit={this.populatePeople.bind(this)}>
-            Number of people: <input type="text" ref="noOfPeople"/> <input type="submit" value="Submit" />
+          <form className="Main-form" onSubmit={this.populatePeople.bind(this)} style={{height: '30px'}}>
+            Number of people: <input type="text" ref="noOfPeople" style={{width: 30}}/> <input type="submit" value="Submit"/>
           </form>
-          <br/>
           <div className="Peoples">
             {this.state.peoples}
           </div>
         </div>
+        <br/>
         {this.state.actionButtons}
         <PaymentChain className="PaymentChain" paymentChain={this.state.paymentChain} />
       </div>
@@ -73,7 +72,7 @@ class App extends Component {
       actionButtons.push(<input key="email" type="submit" value="Send email reminder (non-functional yet)"/>);
       this.setState({peoples:peoples, info:info, actionButtons:actionButtons});
     }
-    
+
     e.preventDefault();
   }
 
@@ -93,7 +92,7 @@ class App extends Component {
         'Content-Length': Buffer.byteLength(JSON.stringify(data))
       }
     };
-    
+
     var post_req = https.request(post_options, res => {
       res.setEncoding('utf8');
       var returnData = "";

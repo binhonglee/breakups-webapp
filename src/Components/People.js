@@ -3,21 +3,17 @@ import React, { Component } from 'react';
 class People extends Component {
     constructor() {
         super();
-        this.state = {
-            space: `\t`
-        }
     }
 
     render() {
         return (
             <div className="People">
-                Person {this.props.people}<br/>
+                <p style={{'line-height': '0.5em'}}>Person {this.props.people} <br/></p>
                 <form style={{textAlign:'left'}}>
-                    Name:{this.state.space}<input type = "text" ref="name" onBlur={this.updateProps.bind(this)} style={{float:'right'}}/><br/>
-                    Email:{this.state.space}<input type = "text" ref="email" onBlur={this.updateProps.bind(this)} style={{float:'right'}}/><br/>
-                    Amount:{this.state.space}<input type = "text" ref="amount" onBlur={this.updateProps.bind(this)} style={{float:'right'}}/><br/>
+                    Name: <input type = "text" ref="name" onBlur={this.updateProps.bind(this)} style={{float:'right', width: 100}}/><br/>
+                    Email: <input type = "text" ref="email" onBlur={this.updateProps.bind(this)} style={{float:'right', width: 100}}/><br/>
+                    Amount: <input type = "text" ref="amount" onBlur={this.updateProps.bind(this)} style={{float:'right', width: 100}}/><br/>
                 </form>
-                <br/>
             </div>
         );
     }
