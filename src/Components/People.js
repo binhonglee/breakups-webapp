@@ -4,11 +4,11 @@ class People extends Component {
     render() {
         return (
             <div className="People">
-                <p style={{'line-height': '0.5em'}}>Person {this.props.people} <br/></p>
+                <p className="personNum">Person {this.props.people} <br/></p>
                 <form style={{textAlign:'left'}}>
-                    Name: <input type = "text" ref="name" onBlur={this.updateProps.bind(this)} style={{float:'right', width: 100}}/><br/>
-                    Email: <input type = "text" ref="email" onBlur={this.updateProps.bind(this)} style={{float:'right', width: 100}}/><br/>
-                    Amount: <input type = "text" ref="amount" onBlur={this.updateProps.bind(this)} style={{float:'right', width: 100}}/><br/>
+                    <p>Name: <input className="personInput" type = "text" ref="name" onBlur={this.updateProps.bind(this)}/><br/></p>
+                    <p>Email: <input className="personInput" type = "text" ref="email" onBlur={this.updateProps.bind(this)}/><br/></p>
+                    <p>Amount: <input className="personInput" type = "text" ref="amount" onBlur={this.updateProps.bind(this)}/><br/></p>
                 </form>
             </div>
         );

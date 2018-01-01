@@ -23,3 +23,18 @@
 .PaymentChain {
     margin-bottom: 80px;
 }
+
+.personInput {
+    float: right;
+    width: 100px;
+    height: 0.9em;
+}
+
+p {
+    margin: 0px;
+}
+
+.personNum {
+    line-height: 0.5em;
+    margin: 10px;
+}
