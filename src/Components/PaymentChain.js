@@ -14,7 +14,6 @@ class PaymentChain extends Component {
 
         return (
             <div className="PaymentChain">
-                <br/>
                 {payments}
                 <br/>
             </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import People from './Components/People';
 import PaymentChain from './Components/PaymentChain';
+import Message from './Components/Message';
 import './App.css';
 var https = require('https');
 class App extends Component {
@@ -10,7 +11,8 @@ class App extends Component {
       peoples: [],
       info: [],
       paymentChain: [],
-      actionButtons:[]
+      actionButtons:[],
+      showResults:false
     }
   }
 
@@ -27,7 +29,8 @@ class App extends Component {
         </div>
         <br/>
         {this.state.actionButtons}
-        <PaymentChain className="PaymentChain" paymentChain={this.state.paymentChain} />
+        {this.state.showResults ? <Message /> : <PaymentChain className="PaymentChain" paymentChain={this.state.paymentChain} /> }
+        <br/>
       </div>
     );
   }
@@ -47,10 +50,14 @@ class App extends Component {
       users.push(user);
     }
     request.users = users;
+    let existingState = this.state;
+    existingState.showResults = true;
+    this.setState(existingState);
 
     this.httpsPost(request, result => {
       let existingState = this.state;
       existingState.paymentChain = JSON.parse("[" + result + "]")[0];
+      existingState.showResults = false;
       this.setState(existingState);
     })
   }
@@ -84,7 +91,7 @@ class App extends Component {
 
   httpsPost(data, callback) {
     var post_options = {
-      host:  'breakups.herokuapp.com',
+      host:  'api.breakups.life',
       path: '/paymentChain',
       method: 'POST',
       headers: {
