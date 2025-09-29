@@ -169,8 +169,8 @@ describe('PaymentChain', () => {
 
       await waitFor(() => {
         expect(mockClipboard.writeText).toHaveBeenCalledWith(
-          'Payment Chain from breakups.life\n' +
-          '=====================\n' +
+          'Payment Chain by breakups.life\n' +
+          '=================================\n' +
           '\n' +
           '1. Alice pays Bob: $25.50\n' +
           '2. Charlie pays Dave: $10.00'
@@ -262,8 +262,8 @@ describe('PaymentChain', () => {
 
       await waitFor(() => {
         expect(mockClipboard.writeText).toHaveBeenCalledWith(
-          'Payment Chain from breakups.life\n' +
-          '=====================\n' +
+          'Payment Chain by breakups.life\n' +
+          '=================================\n' +
           '\n' +
           '1. Alice pays Bob: $25.50\n' +
           '2. Charlie pays Dave: $10.00\n' +

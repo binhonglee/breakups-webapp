@@ -32,16 +32,9 @@ To build the application for production:
 npm run build
 ```
 
-To export as static files:
-
-```bash
-npm run export
-```
-
 ## Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
-- `npm run export` - Export static files

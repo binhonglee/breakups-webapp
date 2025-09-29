@@ -70,8 +70,8 @@ export default function PaymentChain({ paymentChain, className }: PaymentChainPr
 
     try {
       const textLines = [
-        'Payment Chain from breakups.life',
-        '=====================',
+        'Payment Chain by breakups.life',
+        '=================================',
         ''
       ];
 
