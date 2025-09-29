@@ -101,7 +101,7 @@ export default function Home(): React.JSX.Element {
         <form className="Main-form" onSubmit={populatePeople}>
           Number of people: <input type="text" name="noOfPeople" /> <input type="submit" value="Submit"/>
         </form>
-        {peoples.length > 0 ? <div className="Peoples">{peoples}</div> : null}
+        {peoples.length > 0 && <div className="Peoples">{peoples}</div>}
       </div>
       <br/>
       {showButton && (
