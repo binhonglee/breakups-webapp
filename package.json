@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@zumer/snapdom": "1.9.14",
-    "next": "16.0.0",
+    "next": "16.0.1",
     "react": "19.1.1",
     "react-dom": "19.1.1"
   },
