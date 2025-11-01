@@ -81,9 +81,11 @@ export default function Home(): React.JSX.Element {
   };
 
   const updateInfo = (e: { id: number; info: PersonInfo }): void => {
-    const newInfo = info;
-    newInfo[e.id] = e.info;
-    setInfo(newInfo);
+    setInfo(prevInfo => {
+      const newInfo = [...prevInfo];
+      newInfo[e.id] = e.info;
+      return newInfo;
+    });
     setShowButton(true);
   };
 

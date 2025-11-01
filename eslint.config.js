@@ -1,9 +1,4 @@
-const { FlatCompat } = require('@eslint/eslintrc');
-const path = require('path');
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+const nextConfig = require('eslint-config-next');
 
 const eslintConfig = [
   {
@@ -14,13 +9,14 @@ const eslintConfig = [
       'node_modules/**',
       'playwright-report/**',
       'test-results/**',
+      'coverage/**',
       '*.config.js',
       '*.config.ts',
       'vitest.d.ts',
       'next-env.d.ts',
     ],
   },
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  ...nextConfig,
 ];
 
 module.exports = eslintConfig;
