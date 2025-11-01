@@ -89,10 +89,8 @@ describe('PaymentChain', () => {
     let originalCreateElement: HTMLDocument['createElement']
     let originalAlert: typeof window.alert
     let mockClipboard: { writeText: (data: string) => Promise<void>; }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let mockDocument: any
     let mockAlert: typeof window.alert
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let mockConsoleError: any
 
     beforeEach(() => {
