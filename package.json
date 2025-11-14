@@ -33,7 +33,7 @@
     "@vitejs/plugin-react": "5.1.1",
     "@vitest/coverage-v8": "4.0.5",
     "eslint": "9.39.1",
-    "eslint-config-next": "16.0.2",
+    "eslint-config-next": "16.0.3",
     "jsdom": "27.2.0",
     "styled-jsx": "5.1.7",
     "typescript": "5.9.3",
