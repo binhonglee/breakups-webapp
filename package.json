@@ -15,7 +15,7 @@
     "test:e2e:headed": "playwright test --headed"
   },
   "dependencies": {
-    "@zumer/snapdom": "2.0.0",
+    "@zumer/snapdom": "2.0.1",
     "next": "16.0.3",
     "react": "19.2.0",
     "react-dom": "19.2.0"
