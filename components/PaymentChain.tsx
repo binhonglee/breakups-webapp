@@ -30,8 +30,12 @@ export default function PaymentChain({ paymentChain, className }: PaymentChainPr
 
     try {
       const img = await snapdom.toPng(paymentChainRef.current);
-      if ('showSaveFilePicker' in window) {
-        const fileHandle = await window.showSaveFilePicker({
+      const showSaveFilePicker = (window as Window & {
+        showSaveFilePicker?: (...args: unknown[]) => Promise<FileSystemFileHandle>;
+      }).showSaveFilePicker;
+
+      if (typeof showSaveFilePicker === 'function') {
+        const fileHandle = await showSaveFilePicker({
           suggestedName: 'payment-chain.png',
           types: [
             {
