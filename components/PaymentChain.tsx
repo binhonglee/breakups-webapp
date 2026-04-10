@@ -13,6 +13,14 @@ interface PaymentChainProps {
   className?: string;
 }
 
+type SaveFilePickerFn = (options?: {
+  suggestedName?: string;
+  types?: Array<{
+    description?: string;
+    accept: Record<string, string[]>;
+  }>;
+}) => Promise<FileSystemFileHandle>;
+
 export default function PaymentChain({ paymentChain, className }: PaymentChainProps): React.JSX.Element {
   const paymentChainRef = useRef<HTMLDivElement>(null);
 
@@ -30,8 +38,10 @@ export default function PaymentChain({ paymentChain, className }: PaymentChainPr
 
     try {
       const img = await snapdom.toPng(paymentChainRef.current);
-      if ('showSaveFilePicker' in window) {
-        const fileHandle = await window.showSaveFilePicker({
+      const win = window as Window & { showSaveFilePicker?: SaveFilePickerFn };
+
+      if (typeof win.showSaveFilePicker === 'function') {
+        const fileHandle = await win.showSaveFilePicker({
           suggestedName: 'payment-chain.png',
           types: [
             {
