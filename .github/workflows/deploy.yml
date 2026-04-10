@@ -24,6 +24,9 @@ jobs:
     - name: Build and export
       run: npm run build
 
+    - name: create CNAME
+      run: echo "breakups.life" > ./dist/CNAME
+
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v4
       with:
