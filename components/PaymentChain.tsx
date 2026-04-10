@@ -38,12 +38,10 @@ export default function PaymentChain({ paymentChain, className }: PaymentChainPr
 
     try {
       const img = await snapdom.toPng(paymentChainRef.current);
-      const showSaveFilePicker = (window as Window & {
-        showSaveFilePicker?: SaveFilePickerFn;
-      }).showSaveFilePicker;
+      const win = window as Window & { showSaveFilePicker?: SaveFilePickerFn };
 
-      if (typeof showSaveFilePicker === 'function') {
-        const fileHandle = await showSaveFilePicker({
+      if (typeof win.showSaveFilePicker === 'function') {
+        const fileHandle = await win.showSaveFilePicker({
           suggestedName: 'payment-chain.png',
           types: [
             {
