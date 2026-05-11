@@ -17,6 +17,13 @@ const eslintConfig = [
     ],
   },
   ...nextConfig,
+  {
+    settings: {
+      react: {
+        version: '19',
+      },
+    },
+  },
 ];
 
 module.exports = eslintConfig;
