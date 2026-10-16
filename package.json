@@ -36,7 +36,7 @@
     "eslint-config-next": "16.4.0",
     "jsdom": "29.1.1",
     "styled-jsx": "5.1.7",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "vitest": "5.0.2"
   }
 }
