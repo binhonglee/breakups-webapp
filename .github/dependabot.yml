@@ -22,6 +22,10 @@ updates:
         patterns:
           - "react"
           - "react-dom"
+    ignore:
+      # typescript-eslint (via eslint-config-next) does not support TS 7 yet
+      - dependency-name: "typescript"
+        versions: [">=7.0.0"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
