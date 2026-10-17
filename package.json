@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "typecheck": "node node_modules/typescript-7/bin/tsc --noEmit",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -37,6 +38,7 @@
     "jsdom": "30.1.2",
     "styled-jsx": "5.1.7",
     "typescript": "6.0.3",
+    "typescript-7": "npm:typescript@7.0.2",
     "vitest": "5.0.4"
   }
 }
