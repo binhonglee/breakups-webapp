@@ -22,6 +22,12 @@ updates:
         patterns:
           - "react"
           - "react-dom"
+    ignore:
+      # TS 7 ships no JS compiler API, which typescript-eslint and next build
+      # still need, so "typescript" stays on 6.x. TS 7 type checking runs via
+      # the "typescript-7" alias (npm run typecheck), which still gets updates.
+      - dependency-name: "typescript"
+        versions: [">=7.0.0"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
